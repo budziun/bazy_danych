@@ -1,0 +1,5 @@
+zad 1 
+a) 
+delete from postac where rodzaj="wiking" order by wiek desc limit 2;
+b)
+
