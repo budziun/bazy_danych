@@ -7,7 +7,7 @@ tworzenie tabeli postac
 1.
 create table postac (
 id_postaci int auto_increment primary key,
-nazwa archar(40),
+nazwa varchar(40),
 rodzaj enum("wiking","ptak","kobieta"),
 data_ur date,
 wiek int unsigned);
@@ -46,8 +46,7 @@ insert into izba values("Sloneczna 21","spizarnia",200,default,1);
 
 zad 4
 1.
-create table przetwory(id_przetworu int auto_increment primary key,rok_produkcji int default "1654",id_wykonawcy int, zawartosc varchar(50), dodatek varchar(30) default "chilli", id_konsumenta int, foreign key (id_wykonawcy) reference
-s postac(id_postaci), foreign key (id_konsumenta) references postac(id_postaci) );
+create table przetwory(id_przetworu int auto_increment primary key,rok_produkcji int default "1654",id_wykonawcy int, zawartosc varchar(50), dodatek varchar(30) default "chilli", id_konsumenta int, foreign key (id_wykonawcy) references postac(id_postaci), foreign key (id_konsumenta) references postac(id_postaci) );
 2.
 insert into przetwory values(1,default,1,"Bigos z papryczka chilli",default,3);
 
