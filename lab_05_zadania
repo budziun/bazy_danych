@@ -1,0 +1,14 @@
+zad 1
+a)
+create table kreatura select * from wikingowie.kreatura;
+create table zasob select * from wikingowie.zasob;
+create table ekwipunek select * from wikingowie.ekwipunek;
+b)
+select * from zasob;
+c) 
+select * from zasob where rodzaj="jedzenie";
+d)
+
+zad 2
+## != nierowny/ rozny od lub <>
+a)
