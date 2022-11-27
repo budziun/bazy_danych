@@ -21,3 +21,24 @@ select * from kreatura where nazwa like "%or%" and udzwig>30 and udzwig<70;
 
 zad 3
 a)
+SELECT nazwa, dataPozyskania FROM zasob where month(dataPozyskania) in (7,8);  
+b)
+select * from zasob where rodzaj is not null order by waga;
+c)
+select * from kreatura order by dataUr desc limit 5;
+
+zad 4
+a)
+select distinct nazwa from zasob;
+b)
+select concat(nazwa," ",rodzaj) from kreatura where rodzaj like "wi%";
+c)
+select nazwa, (waga*ilosc) as waga_calkowita, dataPozyskania from zasob where year(dataPozyskania) >= 2000 and year(dataPozyskania) <= 2007;
+
+zad 5
+a)
+select nazwa,waga*0.7 as waga_netto,waga*0.3 as odpadki from zasob;
+b)
+select nazwa,rodzaj from zasob where rodzaj is null;
+c)
+select distinct nazwa from zasob where nazwa like "Ba%" or nazwa like "%os" order by nazwa asc;
