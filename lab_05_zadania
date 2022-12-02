@@ -37,7 +37,7 @@ select nazwa, (waga*ilosc) as waga_calkowita, dataPozyskania from zasob where ye
 
 zad 5
 a)
-select nazwa,waga*0.7 as waga_netto,waga*0.3 as odpadki from zasob;
+select nazwa,waga*0.7 as waga_netto,waga*0.3 as odpadki from zasob where rodzaj="jedzenie";
 b)
 select nazwa,rodzaj from zasob where rodzaj is null;
 c)
