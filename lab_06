@@ -30,4 +30,4 @@ c)
 select * from kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury where e.idEkwipunku is null;
 
 zad 4
-a)
+
