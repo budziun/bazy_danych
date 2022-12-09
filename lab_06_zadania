@@ -35,12 +35,14 @@ select k.nazwa, z.nazwa, dataUr from zasob z inner join kreatura k inner join ek
 b)
 select dataUr, k.nazwa, z.rodzaj from kreatura k join ekwipunek e on k.idKreatury=e.idKreatury join zasob z on e.idZasobu=z.idZasobu where z.rodzaj='jedzenie' order by dataUr asc limit 5;
 c)
-select concat(k1.nazwa,' - ',k2.nazwa) from kreatura k1 join kreatura k2 on k1.idKreatury=k2.idKreatury; // brakuje warunku where
+select concat(k2.nazwa, ' - ', k1.nazwa) as tak from kreatura k1 join kreatura k2 on k1.idKreatury-5=k2.idKreatury;
 
 zad 5
 a)
-select k.rodzaj, sum(e.ilosc*z.waga)/count(distinct(k.nazwa)) as srednia_waga from kreatura k join ekwipunek e on k.idKreatury=e.idKreatury join zasob z on e.idZasobu=z.idZasobu where k.rodzaj not in ('malpa','waz') group by k.rodzaj;
-// tez czegos brakuje chyba 
-// select k.rodzaj, sum(e.ilosc*z.waga)/count(distinct(k.nazwa)) as srednia_waga from kreatura k join ekwipunek e on k.idKreatury=e.idKreatury join zasob z on e.idZasobu=z.idZasobu where k.rodzaj not in ('malpa','waz') and e.ilosc < 30 group by k.rodzaj;
+select k.rodzaj,
+sum(e.ilosc*z.waga)/count(distinct(k.nazwa)) from kreatura k 
+inner join ekwipunek e on k.idKreatury=e.idKreatury 
+inner join zasob z on e.idZasobu=z.idZasobu 
+where k.rodzaj not in ('malpa', 'waz') group by k.rodzaj; 
 b)
 select k.rodzaj, max(k.dataUr), min(k.dataUr) from kreatura k group by k.rodzaj;
