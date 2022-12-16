@@ -45,4 +45,4 @@ inner join ekwipunek e on k.idKreatury=e.idKreatury
 inner join zasob z on e.idZasobu=z.idZasobu 
 where k.rodzaj not in ('malpa', 'waz') group by k.rodzaj; 
 b)
-select k.rodzaj, max(k.dataUr), min(k.dataUr) from kreatura k group by k.rodzaj;
+select 'najstarsza', a.minData, b.nazwa, a.rodzaj from (select min(dataUR) minData,rodzaj from kreatura group by rodzaj) a, (select nazwa,dataUr from kreatura) b where a.minData=b.dataUr;
