@@ -30,11 +30,10 @@ order by w.data_rozpoczecia desc, ew.kolejnosc asc;
 
 zad. 3
 a)
-select s.nazwa, count(ew.sektor) as ile_odwiedzin from sektor s left join etapy_wyprawy ew on s.id_sektora=ew.sektor group by s.id_sektora;
+select s.nazwa, count(ew.sektor) as ile_odwiedzin from sektor s
+left join etapy_wyprawy ew on s.id_sektora=ew.sektor 
+group by s.id_sektora;
 b)
-select 
-k.nazwa, if(count(u.id_uczestnika))>0,
-
-from kreatura k 
-inner join uczestnicy u on k.idKreatury=u.id_uczestnika
-group by k.idKreatury;
+select k.nazwa, if(count(id_uczestnika)>0, 'bral udzal', 'nie bral udzial') from kreatura k
+left join uczestnicy s on s.id_uczestnika=k.idKreatury
+group by k.idKreatury; 
