@@ -37,3 +37,25 @@ b)
 select k.nazwa, if(count(id_uczestnika)>0, 'bral udzal', 'nie bral udzial') from kreatura k
 left join uczestnicy s on s.id_uczestnika=k.idKreatury
 group by k.idKreatury; 
+
+zad. 4
+a) 
+select nazwa, sum(length(dziennik)) from wyprawa w 
+join etapy_wyprawy ew on ew.idWyprawy=w.id_wyprawy 
+group by nazwa having sum(length(dziennik)) < 400
+b)
+select w.nazwa, ((sum(z.waga*e.ilosc))/(count(distinct(u.id_uczestnika)))) sr_waga from wyprawa w 
+join uczestnicy u on w.id_wyprawy=u.id_wyprawy 
+join ekwipunek e on u.id_uczestnika=e.idKreatury 
+join zasob z on e.idZasobu=z.idZasobu 
+group by w.nazwa;
+
+zad. 5
+a)
+select w.nazwa, sum(e.ilosc * z.waga), count(distinct u.id_uczestnika),
+sum(e.ilosc * z.waga) / count(distinct u.id_uczestnika)
+from wyprawa w
+left join uczestnicy u on w.id_wyprawy=u.id_wyprawy
+left join ekwipunek e on u.id_uczestnika=e.idKreatury
+left join zasob z on e.idZasobu=z.idZasobu
+group by w.nazwa;
